@@ -3,8 +3,11 @@ Track green ball and add speed/accel vector on its center and real time graphs
 
 # Configuration
 Implemented and tested with:
+
 Ubuntu 16.04
+
 Opencv 4.0 Alpha
+
 Python 3.5
 
 (some tests done on windows's python without need any change on script)
@@ -41,15 +44,23 @@ we calculate the acceleration using:
   With these values V and Ac calculated it is used to put it as vector size 
 on centroid.
  
-Notes ball moving left to right : Vx positive
-                  right to left : Vx negative
-                  Up to down    : Vy positive
-                  Down to up    : Vy negative
-                  *Acelleration follow the same sign rules
+Notes ball moving: 
+
+left to right : Vx positive
+
+right to left : Vx negative
+
+Up to down    : Vy positive
+
+Down to up    : Vy negative
+
+*Acelleration follow the same sign rules
 
 # Extra command:
 when selected with mouse the output frame video/webcam type:  
+
 "q" to quit the execution
+
 "s" toggle a orange square around the tracked ball
 
 # USAGE
@@ -79,43 +90,38 @@ video     = name of video file *.avi, *mp4.
             optional. default none 
 
 # Examples
-# ex1:
+ex1: this tracking a ball capture the frames from default webcam 
+
     python ball_tracking.py
-        this tracking a ball capture the frames from default webcam 
+        
 
-# ex2:
+ex2: this tracking a ball setting the webcam to capture. Confirm at beginning of log if configuration was really accepted.
+
     python ball_tracking.py --fps 60
-        this tracking a ball setting the webcam to capture. Confirm at 
-        beginning of log if configuration was really accepted.
 
-# ex3:
+ex3: this command start the script to read frames from webcam and and speed up the ball centroid (red circle) by 2x
+
     python ball_tracking.py --factor 2
-       this command start the script to read frames from webcam and and speed 
-       up the ball centroid (red circle) by 2x
 
-# ex4: 
+ex4: this tracking a ball using video file  
+
     python ball_tracking.py --video ball_tracking_example.mp4
-        this tracking a ball using video file  
+        
 
-# ex5:
-    python ball_tracking.py --inter
-        this tracking a ball using webcam, only 50% of frame is our interested 
-        area (left side of frame)
+ex5: this tracking a ball using webcam, only 50% of frame is our interested area (left side of frame)
+
+    python ball_tracking.py --inter 0.5
 
 # CONFIGURATION SETTINGS IN ball_tracking.py file
-True - it saves a log debug.log in current directory 
-
+True - it saves a log debug.log in current directory, False - disable logging to file. 
   LOG_TO_FILE = True    
 
 True - Include grid on output, False - disable grid
-
   GRID = True
 
 True - plot animated graph of Speed and acceleration, False - plot graph is not executed
-
   PLOT_SPEED_ACC = True
  
 True - Show original frame captured by webcam or video, False the original frame of 
 webcam/video is not displayed
-
   SHOW_ORIG = True
